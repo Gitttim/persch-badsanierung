@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persch Badsanierung â Allround-Handwerker in MÃ¼nchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#1e293b;background:#f8fafc;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+/* COLORS */
+:root{
+--primary:#1d4ed8;
+--primary-dark:#1e3a8a;
+--accent:#f59e0b;
+--light:#eff6ff;
+--muted:#64748b;
+--border:#e2e8f0;
+--white:#ffffff;
+--dark:#0f172a;
+}
+
+/* NAV */
+nav{
+background:var(--white);
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 1px 4px rgba(0,0,0,.06)
+}
+.nav-inner{
+max-width:1100px;
+margin:0 auto;
+padding:0 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:64px
+}
+.nav-logo{
+font-size:1.1rem;
+font-weight:700;
+color:var(--primary-dark)
+}
+.nav-logo span{
+color:var(--accent)
+}
+.nav-links{
+display:flex;
+gap:28px;
+list-style:none
+}
+.nav-links a{
+font-size:.92rem;
+font-weight:500;
+color:var(--muted);
+transition:color .2s
+}
+.nav-links a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{
+background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,#3b82f6 100%);
+color:var(--white);
+padding:80px 24px 90px;
+text-align:center;
+position:relative;
+overflow:hidden
+}
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+pointer-events:none
+}
+.hero-inner{position:relative;max-width:700px;margin:0 auto}
+.hero-badge{
+display:inline-block;
+background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.25);
+border-radius:50px;
+padding:6px 18px;
+font-size:.82rem;
+font-weight:500;
+letter-spacing:.04em;
+text-transform:uppercase;
+margin-bottom:20px
+}
+.hero h1{
+font-size:clamp(2rem,5vw,3.2rem);
+font-weight:700;
+line-height:1.15;
+margin-bottom:12px
+}
+.hero-subtitle{
+font-size:1.1rem;
+opacity:.85;
+margin-bottom:28px
+}
+.hero-rating{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.2);
+border-radius:50px;
+padding:8px 20px
+}
+.stars{display:inline-flex;gap:2px}
+.star{font-size:1.1rem}
+.star.full{color:var(--accent)}
+.star.empty{color:rgba(255,255,255,.35)}
+.rating-text{font-size:.92rem;font-weight:500}
+.hero-cta{
+margin-top:36px;
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:var(--accent);
+color:var(--dark);
+border-radius:8px;
+padding:14px 32px;
+font-weight:700;
+font-size:1rem;
+transition:background .2s,transform .15s;
+box-shadow:0 4px 14px rgba(245,158,11,.4)
+}
+.hero-cta:hover{background:#d97706;transform:translateY(-1px)}
+
+/* SECTIONS */
+section{padding:72px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{
+font-size:.78rem;
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:.08em;
+color:var(--primary);
+margin-bottom:8px
+}
+.section-title{
+font-size:clamp(1.6rem,3vw,2.2rem);
+font-weight:700;
+color:var(--dark);
+margin-bottom:16px
+}
+.section-divider{
+width:48px;
+height:4px;
+background:var(--accent);
+border-radius:4px;
+margin-bottom:32px
+}
+
+/* ÃBER UNS */
+#ueber-uns{background:var(--white)}
+.ueber-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:48px;
+align-items:center
+}
+.ueber-text p{
+color:var(--muted);
+margin-bottom:16px;
+font-size:1rem
+}
+.ueber-features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin-top:8px
+}
+.feature-card{
+background:var(--light);
+border-radius:10px;
+padding:18px;
+border-left:3px solid var(--primary)
+}
+.feature-card h4{
+font-size:.95rem;
+font-weight:600;
+color:var(--primary-dark);
+margin-bottom:4px
+}
+.feature-card p{
+font-size:.84rem;
+color:var(--muted);margin:0
+}
+.ueber-visual{
+background:linear-gradient(135deg,var(--light) 0%,#dbeafe 100%);
+border-radius:16px;
+padding:48px 32px;
+text-align:center;
+border:1px solid var(--border)
+}
+.ueber-icon{font-size:4rem;margin-bottom:16px}
+.ueber-visual h3{
+font-size:1.2rem;
+font-weight:700;
+color:var(--primary-dark);
+margin-bottom:8px
+}
+.ueber-visual p{
+font-size:.9rem;
+color:var(--muted)
+}
+
+/* ÃFFNUNGSZEITEN */
+#oeffnungszeiten{background:#f1f5f9}
+.hours-card{
+max-width:600px;
+margin:0 auto;
+background:var(--white);
+border-radius:16px;
+box-shadow:0 4px 24px rgba(0,0,0,.07);
+overflow:hidden
+}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{
+border-bottom:1px solid var(--border)
+}
+.hours-table tr:last-child{border-bottom:none}
+.hours-table td{
+padding:14px 24px;
+font-size:.95rem
+}
+.hours-table td:first-child{
+font-weight:500;
+color:var(--dark);
+width:45%
+}
+.hours-table td:last-child{
+color:var(--muted);
+text-align:right
+}
+.hours-table tr.today{
+background:var(--light)
+}
+.hours-table tr.today td:first-child{
+color:var(--primary);
+font-weight:600
+}
+.closed{color:#ef4444!important;font-weight:500}
+.hours-header{
+background:var(--primary);
+color:var(--white);
+padding:20px 24px;
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:600;
+font-size:1rem
+}
+
+/* BEWERTUNGEN */
+#bewertungen{background:var(--white)}
+.reviews-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:24px
+}
+.review-card{
+background:#f8fafc;
+border-radius:14px;
+padding:28px;
+border:1px solid var(--border);
+position:relative;
+transition:box-shadow .2s
+}
+.review-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.09)}
+.review-stars{margin-bottom:12px}
+.review-star{font-size:1rem}
+.review-star.full{color:var(--accent)}
+.review-star.empty{color:#cbd5e1}
+.review-text{
+font-size:.92rem;
+color:#475569;
+line-height:1.65;
+margin-bottom:16px;
+font-style:italic
+}
+.review-text::before{content:'\201E'}
+.review-text::after{content:'\201C'}
+.review-meta{
+display:flex;
+align-items:center;
+gap:10px
+}
+.review-avatar{
+width:36px;
+height:36px;
+border-radius:50%;
+background:var(--primary);
+color:var(--white);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:.85rem
+}
+.review-author{
+font-size:.88rem;
+font-weight:600;
+color:var(--dark)
+}
+.rating-summary{
+text-align:center;
+margin-bottom:40px
+}
+.big-rating{
+font-size:3.5rem;
+font-weight:700;
+color:var(--dark);
+line-height:1
+}
+.big-stars{
+font-size:1.5rem;
+margin:8px 0
+}
+.rating-count{
+color:var(--muted);
+font-size:.9rem
+}
+
+/* KONTAKT */
+#kontakt{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%);color:var(--white)}
+#kontakt .section-label{color:rgba(255,255,255,.6)}
+#kontakt .section-title{color:var(--white)}
+.kontakt-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:48px;
+align-items:start
+}
+.kontakt-info{
+display:flex;
+flex-direction:column;
+gap:20px
+}
+.info-item{
+display:flex;
+align-items:flex-start;
+gap:16px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.12);
+border-radius:12px;
+padding:20px
+}
+.info-icon{
+font-size:1.4rem;
+min-width:28px
+}
+.info-label{
+font-size:.78rem;
+font-weight:500;
+text-transform:uppercase;
+letter-spacing:.06em;
+opacity:.65;
+margin-bottom:4px
+}
+.info-value{
+font-size:1rem;
+font-weight:500
+}
+.info-value a{
+color:var(--white);
+text-decoration:underline;
+text-underline-offset:3px
+}
+.cta-box{
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+border-radius:16px;
+padding:40px 32px;
+text-align:center
+}
+.cta-box h3{
+font-size:1.4rem;
+font-weight:700;
+margin-bottom:12px
+}
+.cta-box p{
+opacity:.8;
+font-size:.95rem;
+margin-bottom:28px
+}
+.cta-phone{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:var(--accent);
+color:var(--dark);
+border-radius:10px;
+padding:16px 32px;
+font-weight:700;
+font-size:1.1rem;
+transition:background .2s,transform .15s;
+box-shadow:0 4px 14px rgba(0,0,0,.2)
+}
+.cta-phone:hover{background:#d97706;transform:translateY(-1px)}
+
+/* FOOTER */
+footer{
+background:var(--dark);
+color:rgba(255,255,255,.5);
+text-align:center;
+padding:28px 24px;
+font-size:.85rem
+}
+footer span{color:rgba(255,255,255,.8)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav-links{display:none}
+.ueber-grid,.kontakt-grid{grid-template-columns:1fr;gap:32px}
+.ueber-features{grid-template-columns:1fr}
+.ueber-visual{order:-1}
+.hours-table td{padding:12px 16px}
+}
+@media(max-width:500px){
+.hero{padding:60px 16px 70px}
+.reviews-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="nav-inner">
+<div class="nav-logo">Persch <span>Badsanierung</span></div>
+<ul class="nav-links">
+<li><a href="#ueber-uns">Ãber uns</a></li>
+<li><a href="#oeffnungszeiten">Ãffnungszeiten</a></li>
+<li><a href="#bewertungen">Bewertungen</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-badge">Allround-Handwerker Â· MÃ¼nchen</div>
+<h1>Persch Badsanierung</h1>
+<p class="hero-subtitle">Ihr Fachbetrieb fÃ¼r Badsanierungen im Herzen von MÃ¼nchen â Ramersdorf-Perlach</p>
+<div class="hero-rating">
+<div class="stars">
+<span class="star full">â</span>
+<span class="star full">â</span>
+<span class="star empty">â</span>
+<span class="star empty">â</span>
+<span class="star empty">â</span>
+</div>
+<span class="rating-text">2,3 / 5 &nbsp;Â·&nbsp; 3 Bewertungen</span>
+</div>
+<a href="tel:+4915787846971" class="hero-cta">
+<span>ð</span> Jetzt anrufen
+</a>
+</div>
+</section>
+
+<!-- ÃBER UNS -->
+<section id="ueber-uns">
+<div class="section-inner">
+<div class="ueber-grid">
+<div>
+<div class="section-label">Ãber uns</div>
+<h2 class="section-title">Ihr Allround-Handwerker in MÃ¼nchen</h2>
+<div class="section-divider"></div>
+<div class="ueber-text">
+<p>Persch Badsanierung ist Ihr zuverlÃ¤ssiger Handwerksbetrieb fÃ¼r umfassende Badsanierungen in MÃ¼nchen und Umgebung. Mit Erfahrung und Fachkompetenz kÃ¼mmern wir uns um die Planung, Renovierung und Modernisierung Ihres Badezimmers â von der ersten Beratung bis zur finalen Umsetzung.</p>
+<p>Ob komplette Badrenovierung, Fliesenarbeiten, SanitÃ¤rinstallation oder individuelle Umbauten â wir bieten Ihnen ein breites Leistungsspektrum aus einer Hand. Unser Ziel ist es, Ihren Wohntraum Wirklichkeit werden zu lassen.</p>
+</div>
+<div class="ueber-features">
+<div class="feature-card">
+<h4>ð Badsanierung</h4>
+<p>Komplettrenovierungen & Modernisierungen</p>
+</div>
+<div class="feature-card">
+<h4>ð§ SanitÃ¤r</h4>
+<p>Installation & Reparatur aller Art</p>
+</div>
+<div class="feature-card">
+<h4>ðª Fliesenarbeiten</h4>
+<p>Fachgerechte Verlegung & Gestaltung</p>
+</div>
+<div class="feature-card">
+<h4>ð Beratung</h4>
+<p>Individuelle Planung & Konzepte</p>
+</div>
+</div>
+</div>
+<div class="ueber-visual">
+<div class="ueber-icon">ð </div>
+<h3>QualitÃ¤t aus einer Hand</h3>
+<p>Von der Planung bis zur Fertigstellung â wir begleiten Sie durch Ihr gesamtes Sanierungsprojekt in MÃ¼nchen und sorgen fÃ¼r ein rundum erneuerteres Badezimmer, das Ihren AnsprÃ¼chen gerecht wird.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ÃFFNUNGSZEITEN -->
+<section id="oeffnungszeiten">
+<div class="section-inner">
+<div style="text-align:center;margin-bottom:36px">
+<div class="section-label">Wann wir fÃ¼r Sie da sind</div>
+<h2 class="section-title">Ãffnungszeiten</h2>
+<div class="section-divider" style="margin:0 auto 0"></div>
+</div>
+<div class="hours-card">
+<div class="hours-header">
+<span>ð</span>
+<span>Unsere GeschÃ¤ftszeiten</span>
+</div>
+<table class="hours-table">
+<tr>
+<td>Montag</td>
+<td>09:00 â 20:00 Uhr</td>
+</tr>
+<tr>
+<td>Dienstag</td>
+<td>09:00 â 20:00 Uhr</td>
+</tr>
+<tr>
+<td>Mittwoch</td>
+<td>09:00 â 20:00 Uhr</td>
+</tr>
+<tr>
+<td>Donnerstag</td>
+<td>09:00 â 20:00 Uhr</td>
+</tr>
+<tr>
+<td>Freitag</td>
+<td>09:00 â 20:00 Uhr</td>
+</tr>
+<tr>
+<td>Samstag</td>
+<td>09:00 â 20:00 Uhr</td>
+</tr>
+<tr>
+<td>Sonntag</td>
+<td class="closed">Geschlossen</td>
+</tr>
+</table>
+</div>
+</div>
+</section>
+
+<!-- BEWERTUNGEN -->
+<section id="bewertungen">
+<div class="section-inner">
+<div style="text-align:center;margin-bottom:36px">
+<div class="section-label">Was unsere Kunden sagen</div>
+<h2 class="section-title">Kundenbewertungen</h2>
+<div class="section-divider" style="margin:0 auto 16px"></div>
+</div>
+<div class="rating-summary">
+<div class="big-rating">2,3</div>
+<div class="big-stars">
+<span class="review-star full">â</span>
+<span class="review-star full">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+</div>
+<div class="rating-count">Basierend auf 3 Google-Bewertungen</div>
+</div>
+<div class="reviews-grid">
+
+<div class="review-card">
+<div class="review-stars">
+<span class="review-star full">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+</div>
+<p class="review-text">Achtung Abzocke!!!! 3 Wochen fÃ¼r die Badsanierung waren versprochen, nach fast 3 Monaten nur 60 % der Arbeit fertig und dann haben sie die Baustelle verlassen!</p>
+<div class="review-meta">
+<div class="review-avatar" style="background:#ef4444">K</div>
+<div class="review-author">Kunde aus MÃ¼nchen</div>
+</div>
+</div>
+
+<div class="review-card">
+<div class="review-stars">
+<span class="review-star full">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+<span class="review-star empty">â</span>
+</div>
+<p class="review-text">Achtung! Finger weg von dieser Firma! Komplette Bausanierung von 3 BÃ¤dern in unserem Haus war vertraglich abgemacht worden. Es wurde viel versprochen und der erste Eindruck, vor Vertragsabschluss, war gut â doch die Umsetzung enttÃ¤uschte.</p>
+<div class="review-meta">
+<div class="review-avatar" style="background:#ef4444">K</div>
+<div class="review-author">Kunde aus MÃ¼nchen</div>
+</div>
+</div>
+
+<div class="review-card">
+<div class="review-stars">
+<span class="review-star full">â</span>
+<span class="review-star full">â</span>
+<span class="review-star full">â</span>
+<span class="review-star full">â</span>
+<span class="review-star full">â</span>
+</div>
+<p class="review-text">Gute Beratung und Umsetzung. Sind zufrieden. ðð»</p>
+<div class="review-meta">
+<div class="review-avatar" style="background:#22c55e">K</div>
+<div class="review-author">Zufriedener Kunde</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+<div class="section-inner">
+<div class="kontakt-grid">
+<div>
+<div class="section-label">So erreichen Sie uns</div>
+<h2 class="section-title">Kontakt</h2>
+<div class="section-divider"></div>
+<div class="kontakt-info">
+<div class="info-item">
+<div class="info-icon">ð</div>
+<div>
+<div class="info-label">Adresse</div>
+<div class="info-value">Kirchseeoner Str. 1<br>81667 MÃ¼nchen<br>Ramersdorf-Perlach</div>
+</div>
+</div>
+<div class="info-item">
+<div class="info-icon">ð</div>
+<div>
+<div class="info-label">Telefon</div>
+<div class="info-value"><a href="tel:+4915787846971">+49 1578 7846971</a></div>
+</div>
+</div>
+<div class="info-item">
+<div class="info-icon">ð</div>
+<div>
+<div class="info-label">Erreichbarkeit</div>
+<div class="info-value">Mo â Sa: 09:00 â 20:00 Uhr</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cta-box">
+<h3>Kostenloses BeratungsgesprÃ¤ch</h3>
+<p>Haben Sie Fragen zu Ihrer Badsanierung oder mÃ¶chten Sie ein unverbindliches Angebot? Rufen Sie uns einfach an â wir freuen uns auf Ihre Anfrage!</p>
+<a href="tel:+4915787846971" class="cta-phone">
+<span>ð</span> +49 1578 7846971
+</a>
+<p style="margin-top:20px;font-size:.82rem;opacity:.6">Mo â Sa von 09:00 bis 20:00 Uhr erreichbar</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>Â© 2024 <span>Persch Badsanierung</span> Â· Kirchseeoner Str. 1, 81667 MÃ¼nchen Â· Alle Rechte vorbehalten</p>
+</footer>
+
+</body>
+</html>
